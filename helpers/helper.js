@@ -1,7 +1,11 @@
 module.exports = {
     getRandomString (stringLength) {
-        const chars = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'];
-        return [...Array(stringLength)].map(i=>chars[Math.random()*chars.length|0]).join('');
+        const chars = [...'abcdefghijklmnopqrstuvwxyz0123456789'];
+        const randomArray = [];
+        for (let i = 0; i<stringLength; i ++) {
+            randomArray.push(chars[Math.random()*chars.length|0]);
+        }
+        return randomArray.join('');
     },
     async waitForUrl (path) {
         await browser.waitUntil(async () => {
