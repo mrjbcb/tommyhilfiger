@@ -12,19 +12,17 @@ In this repository can be found the end-2-end tests for the [Tommy Hilfiger](htt
 [Mocha](https://mochajs.org/) is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases. Hosted on GitHub.
 
 ### Project Setup
+All the following commands should be run on the project's root.
 
-- Before installing, [download and install Node.js](https://nodejs.org/en/download/). Note that only releases that are or will become an LTS release are officially supported by webdriverIO. However for this setup the version of node that should be install is v14.17.1.
+#### Prerequisites
 
-Installation is done using the command:
+- Have chrome browser v94 and [Node v14.18.0](https://nodejs.org/en/download/).
+
+Dependencies are instaled by running the following command:
 
 ```bash
 npm install
 ```
-
-- After installing all the required dependencies is also required to define the environment variables for both frameworks. To do that please follow the steps below:
-
-    1. Create a file named `.env` based on `.env.example`
-    2. Set `LAUNCH_URL` on .env file
 
 ### Run tests in webdriverio
 
@@ -34,8 +32,13 @@ Following command will run all the tests:
 npm run test
 ```
 
-#### Prerequisite
+### Run eslint
 
-Have chrome browser installed.
+```bash
+npm run eslint
+```
+#### Run eslint and fix
 
-// TODO: Docker!????
+```bash
+npm run esfix
+```

@@ -1,26 +1,20 @@
-require('dotenv').config({path: '.env'});
-
-let config = {
-    baseUrl: process.env.LAUNCH_URL,
+const config = {
+    baseUrl: 'https://nl.tommy.com',
     specs: [
         './tests/**/*.spec.js'
     ],
     runner: 'local',
-    maxInstances: 2,
+    maxInstances: 1,
+    acceptInsecureCerts: true,
+    bail: 0,
     capabilities: [{
         browserName: 'chrome',
+        acceptInsecureCerts: true,
         'goog:chromeOptions': {
             args: [
-                '--window-size=1280,800',
+                '--window-size=1280,800'
             ]}
     }],
-    beforeSession: function (config, caps, specs) {
-        if (specs[0].includes('mobile')) {
-            caps['goog:chromeOptions'].mobileEmulation = {deviceName: 'Pixel 2'};
-        } else {
-            caps['goog:chromeOptions'].mobileEmulation = {};
-        }
-    },
     before: async function (capabilities, specs, browser) {
         await browser.url('');
         await $('body[class]').waitForExist();
